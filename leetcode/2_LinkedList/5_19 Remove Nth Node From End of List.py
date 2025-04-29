@@ -25,29 +25,28 @@ class Solution:
         :param n:
         :return:
         """
-        if head is None:
-            return None
+        dummy_head = ListNode(0, head)
+
         # 算链表的长度
         length = 0
-        node = head
-        while node:
+        node = dummy_head
+        while node.next:
             length += 1
             node = node.next
 
         # 删除节点的正向索引，0开始计算
         rm_idx = length - n
-        node = head
-        pre = None
+
+        pre = dummy_head
+        node = dummy_head.next
+
         for i in range(rm_idx):
             pre = node
             node = node.next
+
         # 删除中间节点
-        if pre is not None:
-            pre.next = node.next
-            return head
-        # 删除首节点
-        else:
-            return head.next
+        pre.next = node.next
+        return dummy_head.next
 
 
 class Solution1:
@@ -59,12 +58,12 @@ class Solution1:
         :param n:
         :return:
         """
-        if head is None:
-            return None
+        dummy_head = ListNode(0, head)
 
         fast_node = head
         slow_node = head
-        pre = None
+
+        pre = dummy_head
         mv_n = 0
         while fast_node:
             fast_node = fast_node.next
@@ -74,8 +73,6 @@ class Solution1:
             if mv_n > n:
                 pre = slow_node
                 slow_node = slow_node.next
-        if pre:
-            pre.next = slow_node.next
-            return head
-        else:
-            return head.next
+
+        pre.next = slow_node.next
+        return dummy_head.next

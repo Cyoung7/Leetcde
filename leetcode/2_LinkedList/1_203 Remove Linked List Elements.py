@@ -19,15 +19,17 @@ class ListNode:
 
 class Solution:
     """
-    待完成：将链表相关题目，都用虚拟头处理，简化head的节点处理
     """
     def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
 
         while head is not None and head.val == val:
             head = head.next
 
-        pre = head
-        tmp_node = head.next if head is not None else None
+        # 加上虚拟表头，不用单独处理表头的特殊情况
+        dummy_head = ListNode(0, head)
+
+        pre = dummy_head
+        tmp_node = dummy_head.next
         while tmp_node:
             if tmp_node.val == val:
                 pre.next = tmp_node.next
@@ -36,7 +38,7 @@ class Solution:
                 pre = tmp_node
                 tmp_node = tmp_node.next
 
-        return head
+        return dummy_head.next
 
 
 if __name__ == '__main__':

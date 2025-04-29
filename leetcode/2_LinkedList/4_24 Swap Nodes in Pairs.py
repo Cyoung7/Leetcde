@@ -15,6 +15,7 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
+
 class MyLinkedList2:
     """
     教学思路,加了虚拟的head，统一节点的访问方式
@@ -74,16 +75,16 @@ class MyLinkedList2:
 
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        pre = None
-        new_head = None
-        node = head
+
+        dummy_head = ListNode(0, head)
+
+        pre = dummy_head
+        node = dummy_head.next
         while node and node.next:
-            if new_head is None:
-                new_head = node.next
+
             tmp_node = node.next.next
             # 注意把交换的两个节点和之前接上
-            if pre:
-                pre.next = node.next
+            pre.next = node.next
             # 交换
             node.next.next = node
             node.next = tmp_node
@@ -92,10 +93,7 @@ class Solution:
             # 往后移动两个节点
             node = tmp_node
 
-
-        if new_head is None:
-            new_head = head
-        return new_head
+        return dummy_head.next
 
 
 if __name__ == '__main__':

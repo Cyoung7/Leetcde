@@ -5,7 +5,8 @@
 @contact: cryoung777@gmail.com
 @file: 8_01backpack.py
 @time: 2025/4/23 下午1:34
-@desc: https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.md
+@desc: 01背包问题模板
+https://github.com/youngyangyang04/leetcode-master/blob/master/problems/%E8%83%8C%E5%8C%85%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%8001%E8%83%8C%E5%8C%85-1.md
 """
 
 
